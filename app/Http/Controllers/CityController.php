@@ -10,6 +10,32 @@ use Illuminate\Support\Facades\Validator;
 
 class CityController extends Controller
 {
+    /**
+     * @OA\Info(
+     *     title="API Kota-Kecamatan-Kelurahan ATR/BPN",
+     *     version="1.0.0",
+     *     description="API untuk mengelola data kota, kecamatan, dan kelurahan ATR/BPN"
+     * )
+     */
+    /**
+     * @OA\Get(
+     *     path="/api/city",
+     *     summary="Get all cities",
+     *     operationId="getCity",
+     *     tags={"City"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(ref="#/components/schemas/City")
+     *         ),
+     *     ),
+     *     security={
+     *         {"api_key": {}}
+     *     }
+     * )
+     */
     public function get_city()
     {
         $get_city = City::all();
